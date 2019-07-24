@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var previousval = "X";
   var currentval;
+  var count = 0;
   $(".eachbox").one("click",function() {
     $(this).addClass("selected");
       if(previousval == "X")
@@ -76,10 +77,14 @@ $(document).ready(function() {
     }
     else{
       if($(".selected").length == 9){
-        setTimeout(function(){
-          alert("Its a TIE! Play again");
-          location.reload();
-        }, 800);
+        ++count;
+        if(count == 2)
+        {
+          setTimeout(function(){
+            alert("Its a TIE! Play again");
+            location.reload();
+          }, 800);
+        }
       }
       return false;
     }
